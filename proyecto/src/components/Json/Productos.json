@@ -5,54 +5,54 @@
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Camiseta"
 },
 {
     "id":2,
-    "nombre":"Camiseta Titular",
+    "nombre":"Camiseta Suplente",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Camiseta"
 },
 {
     "id":3,
-    "nombre":"Camiseta Titular",
+    "nombre":"Camiseta Arquero",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Camiseta"
 },
 {
     "id":4,
-    "nombre":"Camiseta Titular",
+    "nombre":"Short Titular",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Shorts"
 },
 {
     "id":5,
-    "nombre":"Camiseta Titular",
+    "nombre":"Short Suplente",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Shorts"
 },
 {
     "id":6,
-    "nombre":"Camiseta Titular",
+    "nombre":"Short Arquero",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Shorts"
 },
 {
     "id":7,
-    "nombre":"Camiseta Titular",
+    "nombre":"Camiseta Basquet",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":""
+    "categoria":"Basquet"
 }
 ]
