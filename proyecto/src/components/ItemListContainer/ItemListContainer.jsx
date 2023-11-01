@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Producto from '../Json/Productos.json'
 import ItemList from '../ItemList/ItemList'
-import { Await, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 
 
