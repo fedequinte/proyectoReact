@@ -1,26 +1,27 @@
 import React from 'react'
-import CartWidget from './CartWidget'
+import CartWidget from '../CarWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
             <div className='nav app'>
-                <a href="home"><img className='logo' src="../img/NewLogo.webp" alt="Logo" /></a>
+                <Link to="/"><img className='logo' src="../img/NewLogo.webp" alt="Logo" /></Link>
                 <div className='links'>
                     <ul>
                         <li>
-                            <a href="/Camisetas">Camisetas</a>
+                            <Link to="/category/Camisetas">Camisetas</Link>
                         </li>
                         <li>
-                            <a href="/Shorts">Short</a>
+                            <Link to="/category/Shorts">Shorts</Link>
                         </li>
                         <li>
-                            <a href="Basquet">Basquet</a>
+                            <Link to="/category/Basquet">Basquet</Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <a href="carrito"><CartWidget/></a>   
+                    <Link to="/Carrito"><CartWidget/></Link>   
                 </div>
             </div>
         </nav>

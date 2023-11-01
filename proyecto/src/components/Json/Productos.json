@@ -1,0 +1,58 @@
+[
+    {
+    "id":1,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":2,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":3,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":4,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":5,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":6,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+},
+{
+    "id":7,
+    "nombre":"Camiseta Titular",
+    "descripcion":"",
+    "precio":25000,
+    "imagen":"",
+    "categoria":""
+}
+]
