@@ -14,7 +14,7 @@ const ItemListContainer = ({greeting}) => { //greeting funciona como props
         const fetchData = async()=>{
             try{
                 const data = await new Promise((resolve) =>{
-                    setTimeout(()=>{ resolve(id? Producto.filter(item=>item.categoria ===id) :Producto)}, 2000);
+                    setTimeout(()=>{ resolve(id? Producto.filter(item=>item.categoria ===id) :Producto)}, 1000);
                 });
             setItem(data);
             }

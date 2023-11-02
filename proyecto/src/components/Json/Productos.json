@@ -5,7 +5,7 @@
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":"Camiseta"
+    "categoria":"Camisetas"
 },
 {
     "id":2,
@@ -13,7 +13,7 @@
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":"Camiseta"
+    "categoria":"Camisetas"
 },
 {
     "id":3,
@@ -21,7 +21,7 @@
     "descripcion":"",
     "precio":25000,
     "imagen":"",
-    "categoria":"Camiseta"
+    "categoria":"Camisetas"
 },
 {
     "id":4,
@@ -42,7 +42,7 @@
 {
     "id":6,
     "nombre":"Short Arquero",
-    "descripcion":"",
+    "descripcion":"hdrhdfhfdhdfjfffffffffffffffffffffffffffffffffffffffffd",
     "precio":25000,
     "imagen":"",
     "categoria":"Shorts"
@@ -50,6 +50,14 @@
 {
     "id":7,
     "nombre":"Camiseta Basquet",
+    "descripcion":"Mostrá tu pasión por River Plate con la remera alternativa de básquet adidas.La historia de River Plate cobra vida en esta camiseta.El diseño difuminado actualiza el uniforme alternativo de 1985 con un toque moderno.La inscripción Grandeza en la nuca te recuerda la importancia de valorar el pasado en el camino hacia un futuro mejor.Ajuste clásico.Tejido entrelazado 100 % poliéster reciclado.Tecnología de absorción AEROREADY.Escudo del River Plate tejido.Grandeza estampado en la nuca",
+    "precio":25000,
+    "imagen":"",
+    "categoria":"Basquet"
+},
+{
+    "id":8,
+    "nombre":"Camiseta Basquet Alternativa",
     "descripcion":"",
     "precio":25000,
     "imagen":"",
