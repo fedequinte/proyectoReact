@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   }, [id]);
   return (
     <div>
-      <ItemDetail item={item}/>
+      <ItemDetail item={item} />
     </div>
   );
 };

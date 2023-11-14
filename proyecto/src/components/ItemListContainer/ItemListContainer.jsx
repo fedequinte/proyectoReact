@@ -15,11 +15,11 @@ const ItemListContainer = ({greeting}) => { //greeting funciona como props
         const queryDb = getFirestore(); //inicia firestore
         const queryCollection = collection(queryDb, 'items'); //items viened de firesbase
         if (id) {
-        const queryFilter = query(queryCollection, where('caterogyId','==', id));
-        getDocs(queryFilter).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));
+        const queryFilter = query(queryCollection, where('categoryId','==', id));                            //filtra por categoria
+        getDocs(queryFilter).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));     
         }
         else {
-            getDocs(queryCollection).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));
+            getDocs(queryCollection).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));  //devuelve todo sino
         }
 },[id])
 
