@@ -1,38 +1,34 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
-import Producto from '../Json/Productos.json'
+import {getFirestore,getDocs, where, query, collection} from 'firebase/firestore'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
 
+
+                                  //-----ESTO ES EL HOME------//
 
 const ItemListContainer = ({greeting}) => { //greeting funciona como props
 
     const[item,setItem] = useState([]);
     const {id} = useParams();
     useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const data = await new Promise((resolve) =>{
-                    setTimeout(()=>{ resolve(id? Producto.filter(item=>item.categoria ===id) :Producto)}, 1000);
-                });
-            setItem(data);
-            }
-            catch(error){
-                console.log('Error al cargar los productos', error);
-            }
-};
-    fetchData()
+        const queryDb = getFirestore(); //inicia firestore
+        const queryCollection = collection(queryDb, 'items'); //items viened de firesbase
+        if (id) {
+        const queryFilter = query(queryCollection, where('caterogyId','==', id));
+        getDocs(queryFilter).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));
+        }
+        else {
+            getDocs(queryCollection).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));
+        }
 },[id])
 
-
     return (
-        <div className='itemListContainer'>
+        <div className='container'>
             <h1 className='bienvenido'>{greeting}</h1>
-            <div>
+            <div className='row'>
                 <ItemList item={item}/>
             </div>
-
         </div>
     )
 }
