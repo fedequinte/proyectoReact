@@ -4,10 +4,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
+//Muestra tarjeta de producto en el home/categoria
 
 const Item = ({item}) => {
+
     return (
-        <Link to={'/item/' + item.id} className='text-decoration-none'>
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={item.imageId} alt={item.title}/>
             <Card.Body>
@@ -15,10 +16,11 @@ const Item = ({item}) => {
             <Card.Text>
                 <p>${item.price}</p>
             </Card.Text>
+            <Link to={'/item/' + item.id} className='text-decoration-none'>
             <Button variant="primary">Ver más</Button>
+            </Link>
             </Card.Body>
         </Card>
-        </Link>
     );
 }
 

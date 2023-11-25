@@ -2,33 +2,40 @@ import { useState, useEffect } from 'react'
 import {getFirestore,getDocs, where, query, collection} from 'firebase/firestore'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-
-
+import '../CssComponents/itemListContainer.css'
+import Loading from '../Loading/Loading'
 
                                   //-----ESTO ES EL HOME------//
 
-const ItemListContainer = ({greeting}) => { //greeting funciona como props
+const ItemListContainer = ({greeting}) => {
+const [item, setItem] = useState([]);
+const [loading, setLoading] = useState(true); 
+const {id} = useParams();
 
-    const[item,setItem] = useState([]);
-    const {id} = useParams();
-    useEffect(()=>{
-        const queryDb = getFirestore(); //inicia firestore
-        const queryCollection = collection(queryDb, 'items'); //items viened de firesbase
-        if (id) {
-        const queryFilter = query(queryCollection, where('categoryId','==', id));                            //filtra por categoria
-        getDocs(queryFilter).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));     
-        }
-        else {
-            getDocs(queryCollection).then((result)=> setItem(result.docs.map((p)=>({id: p.id, ...p.data()}))));  //devuelve todo sino
-        }
-},[id])
+useEffect(() => {
+    setLoading(true);
+    const queryDatebase = getFirestore();
+    const queryCollection = collection(queryDatebase, 'items');
+    if (id) {
+    const queryFilter = query(queryCollection, where('categoryId', '==', id));
+    getDocs(queryFilter).then((result) => {
+        setItem(result.docs.map((product) => ({id: product.id, ...product.data()})));
+        setLoading(false); 
+    });
+    } else {
+    getDocs(queryCollection).then((result) => {
+        setItem(result.docs.map((product) => ({id: product.id, ...product.data()})));
+        setLoading(false);
+    });
+    }
+}, [id]);
+if (loading) {
+return <Loading />}
 
     return (
-        <div className='container'>
+        <div>
             <h1 className='bienvenido'>{greeting}</h1>
-            <div className='row'>
-                <ItemList item={item}/>
-            </div>
+            <div><ItemList item={item}/></div>
         </div>
     )
 }

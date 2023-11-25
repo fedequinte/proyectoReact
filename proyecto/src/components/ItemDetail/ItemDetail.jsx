@@ -1,7 +1,17 @@
-
+import { useState } from "react";
+import ItemCount from "../Count/ItemCount";
+import {Link} from "react-router-dom";
+import {useCartContext} from "../Context/CartContext";
 
 
 const ItemDetail = ({item}) => {
+
+    const[irCart, setIrCart]= useState(false);
+    const {agregarProduct} = useCartContext()
+    const agregar = (cantidad) =>{
+        setIrCart(true);
+        agregarProduct(item,cantidad);
+    }
 
     return (
         <div class="card mb-3">
@@ -14,7 +24,9 @@ const ItemDetail = ({item}) => {
                 <h3 class="card-title text-center">{item.title}</h3>
                 <p class="card-text text-center">{item.description}</p>
                 <p class="card-text text-center"> ${item.price}</p>
-                <button type="button" class="btn btn-outline-danger w-75">Danger</button> 
+                <div>
+                {irCart ? <Link to='/cart'>Finalizar compra</Link> : <ItemCount stock={5} agregar={agregar}/>}
+                </div>
             </div>
             </div>
         </div>
@@ -23,3 +35,5 @@ const ItemDetail = ({item}) => {
 }
 
 export default ItemDetail
+
+
