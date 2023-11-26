@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { useCartContext } from '../Context/CartContext'
 import{getFirestore,collection,addDoc,updateDoc,doc,getDoc} from 'firebase/firestore'
 import Form from 'react-bootstrap/Form'
-
-
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 
 
 export const Formulario = () => {
-    
+
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [telefono, setTelefono] = useState('');
@@ -19,20 +19,34 @@ export const Formulario = () => {
     const [emailConfirmacion, setEmailConfirmacion] = useState('');
     const [error, setError] = useState('');
     const [ordenId, setOrdenId] = useState('');
+    const [show, setShow] = useState(false);
 
-    const {cart,removeProduct, totalPrice} = useCartContext();
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-    const manejarFormulario = (Event) =>{
-        Event.preventDefault();
-        if(email !== emailConfirmacion){
+    const {cart,clearCart, totalPrice} = useCartContext()  
+    
+    
+
+
+    const manejarFormulario = (event) =>{
+        event.preventDefault();
+        const mailValido = email === emailConfirmacion;
+        if(!mailValido){
             setError('Los correos no coinciden');
-            return;
         }
         if(!nombre || !apellido || !telefono|| !direccion|| !email || !emailConfirmacion){
             setError('Todos los campos son obligatorios');
-            return;
             }
-        
+            
+        const pedidoValido=
+        cart &&
+        Object.keys(cart).length > 0 &&
+        Object.values(cart).every((item)=> item.cantidad >=1 ) ;
+        if (!pedidoValido){
+            return alert("No hay producto en el carrito")
+            }
+
         const precioFinal= totalPrice();
         const pedido = {
             producto: cart.map((item) =>({
@@ -64,7 +78,7 @@ export const Formulario = () => {
             addDoc(collection(baseDatos,'orders'),pedido)
             .then((docRef)=>{
                 setOrdenId(docRef.id);
-                removeProduct();
+                clearCart();
             })
             .catch((error)=>{
                 console.log('No se creo orden',error);
@@ -82,6 +96,7 @@ export const Formulario = () => {
         setDireccion('');
         setEmail('');
         setEmailConfirmacion('');
+        
     };
         return(
             <div>
@@ -153,18 +168,35 @@ export const Formulario = () => {
                     />
                     </Form.Group>
                     {error && <p>{error}</p>}
-
-                    {ordenId && (<p>¡Gracias por tu compra! <br /> Este es tu numero de orden: <br />{' '}{ordenId}{' '}</p>)}
                     <div>
-                    <button type="submit">
+                    <button type="submit" onClick={handleShow}>
                     Finalizar Compra
                     </button>
-                    </div>
-                    <br/>
+                    
+                    {ordenId &&(
                     <div>
-                    <Link to="/">
-                    <button>Volver al Home</button>
-                    </Link>
+                        <Modal
+                            show={show}
+                            onHide={handleClose}
+                            backdrop="static"
+                            keyboard={false}
+                        >
+                        <Modal.Header closeButton>
+                        <Modal.Title>Gracias por tu compra Millo ⚪🔴⚪!!!</Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Body>
+                        <p>Este es tu numero de orden: <br />{' '}{ordenId}{' '}</p>
+                        </Modal.Body>
+
+                        <Modal.Footer>
+                        <Link to="/">
+                        <Button variant="secondary" onClick={handleClose}>Volver al Home</Button>
+                        </Link>
+                        </Modal.Footer>
+                        </Modal>
+                        </div>)}
+
                     </div>
                 </Form>
             </div>
