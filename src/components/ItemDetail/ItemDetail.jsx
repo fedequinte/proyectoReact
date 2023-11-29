@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useCartContext} from "../Context/CartContext";
 
 
+
 const ItemDetail = ({item}) => {
 
     const[irCart, setIrCart]= useState(false);
@@ -14,7 +15,7 @@ const ItemDetail = ({item}) => {
     }
 
     return (
-        <div class="card mb-3">
+        <div class="card mb-3 mt-3">
         <div class="row g-0">
             <div class="col-md-4">
             <img src={item.imageId}class="img-fluid rounded-start" alt={item.title}/>
@@ -25,7 +26,8 @@ const ItemDetail = ({item}) => {
                 <p class="card-text text-center">{item.description}</p>
                 <p class="card-text text-center"> ${item.price}</p>
                 <div>
-                {irCart ? <Link to='/cart'>Finalizar compra</Link> : <ItemCount stock={5} agregar={agregar}/>}
+                    {irCart ?<button> <Link to='/cart'>Finalizar compra</Link>
+                    </button> : <ItemCount stock={5} agregar={agregar}/>}   
                 </div>
             </div>
             </div>

@@ -2,23 +2,25 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import '../CssComponents/cartWidget.css'
 
 //Muestra tarjeta de producto en el home/categoria
 
 const Item = ({item}) => {
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' }} className='mb-2'>
             <Card.Img variant="top" src={item.imageId} alt={item.title}/>
             <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
+            <Card.Title className='text-center'>{item.title}</Card.Title>
             <Card.Text>
-                <p>${item.price}</p>
+                <p className='text-center'>${item.price}</p>
             </Card.Text>
+            <div>
             <Link to={'/item/' + item.id} className='text-decoration-none'>
-            <Button variant="primary">Ver más</Button>
+            <Button className='btn btn-danger'>Ver más</Button>
             </Link>
+            </div>
             </Card.Body>
         </Card>
     );

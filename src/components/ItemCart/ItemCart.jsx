@@ -28,7 +28,7 @@ const ItemCart=({item}) => {
               <td>{item.cantidad}</td>
               <td>${item.price}</td>
               <td>${item.price * item.cantidad}</td>
-              <td><button onClick={()=>removeProduct(item.id)}>Eliminar</button></td>
+              <td><button onClick={()=>removeProduct(item.id)} className='button'>Eliminar</button></td>
             </tr>
           </tbody>
         </Table>

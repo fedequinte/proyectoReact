@@ -20,7 +20,6 @@ export const Formulario = () => {
     const [error, setError] = useState('');
     const [ordenId, setOrdenId] = useState('');
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -31,14 +30,15 @@ export const Formulario = () => {
 
     const manejarFormulario = (event) =>{
         event.preventDefault();
-        const mailValido = email === emailConfirmacion;
-        if(!mailValido){
-            setError('Los correos no coinciden');
+        const emailValido = email === emailConfirmacion;
+        if(!emailValido){
+            return setError('Los correos no coinciden')
+    
         }
         if(!nombre || !apellido || !telefono|| !direccion|| !email || !emailConfirmacion){
-            setError('Todos los campos son obligatorios');
+            setError('Todos los campos son obligatorios')
             }
-            
+        
         const pedidoValido=
         cart &&
         Object.keys(cart).length > 0 &&
@@ -103,7 +103,7 @@ export const Formulario = () => {
                 <Form onSubmit={manejarFormulario}>
                     
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label className='text-white'>Email address</Form.Label>
                     <Form.Control
                     type="email"
                     name='email'
@@ -114,7 +114,7 @@ export const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Confirma email</Form.Label>
+                    <Form.Label className='text-white'>Confirma email</Form.Label>
                     <Form.Control
                     type="email"
                     name='email'
@@ -125,7 +125,7 @@ export const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Nombre</Form.Label>
+                    <Form.Label className='text-white'>Nombre</Form.Label>
                     <Form.Control
                     type="text"
                     name='username'
@@ -136,7 +136,7 @@ export const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Apellido</Form.Label>
+                    <Form.Label className='text-white'>Apellido</Form.Label>
                     <Form.Control
                     type="text"
                     name='secon name'
@@ -147,7 +147,7 @@ export const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Telefono</Form.Label>
+                    <Form.Label className='text-white'>Telefono</Form.Label>
                     <Form.Control
                     type="text"
                     name='phone'
@@ -158,7 +158,7 @@ export const Formulario = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Direción</Form.Label>
+                    <Form.Label className='text-white'>Direción</Form.Label>
                     <Form.Control
                     type="text"
                     name='direccion'
@@ -169,7 +169,7 @@ export const Formulario = () => {
                     </Form.Group>
                     {error && <p>{error}</p>}
                     <div>
-                    <button type="submit" onClick={handleShow}>
+                    <button type="submit" onClick={handleShow} className='button'>
                     Finalizar Compra
                     </button>
                     
@@ -191,7 +191,7 @@ export const Formulario = () => {
 
                         <Modal.Footer>
                         <Link to="/">
-                        <Button variant="secondary" onClick={handleClose}>Volver al Home</Button>
+                        <Button variant="secondary" onClick={handleClose} className='button'>Volver al Home</Button>
                         </Link>
                         </Modal.Footer>
                         </Modal>

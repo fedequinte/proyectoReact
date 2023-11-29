@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import {getFirestore, doc, getDoc} from 'firebase/firestore';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from '../Loading/Loading'
+import '../CssComponents/itemDetail.css'
+
+
 
 const ItemDetailContainer = () => {
   const [items, setItem] = useState([]);

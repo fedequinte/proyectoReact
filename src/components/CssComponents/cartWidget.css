@@ -2,7 +2,31 @@
     height: 30px;
 }
 
-.butt-carr{
+.button{
     background-color: rgb(236, 39, 39);
     border: none;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    
+}
+
+.text{
+    color: white;
+    margin-top: 40px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    color: white;
 }

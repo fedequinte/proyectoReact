@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../Context/CartContext';
 import ItemCart from '../ItemCart/ItemCart';
+import '../CssComponents/cartWidget.css'
+
+
+
+
 
 const Cart = () => {
     const { cart, totalPrice } = useCartContext();
@@ -9,22 +14,30 @@ const Cart = () => {
 if (cart.length === 0) {
     return (
         <div>
-        <p>No hay elementos en el carrito</p>
-        <Link to="/">Hacer compras</Link>
+        <h1 className='text-center text'>No hay productos en el carrito</h1>
+        <div className='container'>
+        <button className="mb-3 btn btn-danger compra">
+        <Link to="/" className='link'>Seguir comprando</Link>
+        </button>
+        </div>
         </div>
     );
 }
 
     return (
-        <div className="cart">
+        <div className="cart mt-3">
         {cart.map((item) => (
         <ItemCart key={item.id} item={item} />
         ))}
-        <p>total: $ {totalPrice()}</p>
-        <Link to="/formulario">
+        <div className='total'>
+        <h4>Total: ${totalPrice()}</h4>
+        </div>
+        <div className='container'>
+        <Link to="/formulario" className='link'>
         {' '}
-        <button className="btn-total">Finalizar Compra</button>
+        <button className="btn btn-danger">Finalizar Compra</button>
         </Link>
+        </div>
         </div>
     );
 };

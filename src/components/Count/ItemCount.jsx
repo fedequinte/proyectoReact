@@ -21,15 +21,21 @@ const ItemCount = ({ stock, agregar }) => {
 
   return (
     <div>
-      <button onClick={decrease} disabled={count <= 1}>
+      <div className="d-grid gap-2 col-3 mx-auto">
+      <button onClick={decrease} disabled={count <= 1}className="mb-3 btn btn-outline-danger">
         -
       </button>
-      <span>{count}</span>
-      <button onClick={increase} disabled={count >=stock}>
+      </div>
+      <div className="d-grid gap-2 col-1 mx-auto border border-danger mb-3">
+      <span className="text-center border-danger">{count}</span>
+      </div>
+      <div className="d-grid gap-2 col-3 mx-auto">
+      <button onClick={increase} disabled={count >=stock} className="mb-3 btn btn-outline-danger">
         +
       </button>
+      </div>
       <div>
-        <button onClick={() => agregar(count)}>
+        <button onClick={() => agregar(count)} className="w-100 btn btn-outline-danger">
           Agregar al carrito
         </button>
       </div>
